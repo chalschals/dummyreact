@@ -1,0 +1,26 @@
+[
+    {
+        "docType":"SAMPLE DOCS",
+        "docName":"test.doc"
+    },
+    {
+        "docType":"OTHER DOCS",
+        "docName":"test_test.doc"
+    },
+    {
+        "docType":"SAMPLE DOCS",
+        "docName":"test123.doc"
+    },
+    {
+        "docType":"OTHER DOCS",
+        "docName":"test_files.doc"
+    },
+    {
+        "docType":"OTHER DOCS",
+        "docName":"test_docs.doc"
+    },
+    {
+        "docType":"OTHERTYPE DOCS",
+        "docName":"test_docs_new.doc"
+    }
+]
