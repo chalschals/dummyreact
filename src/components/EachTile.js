@@ -3,7 +3,7 @@ import { getDocData } from "../service/TitleService";
 
 export default function EachTile(props) {
 
-  const [tlsData,setTls] = useState([]);
+  const [docsData,setDocsData] = useState([]);
 
   useEffect(() => {
     getDocData(props.form_id).then((result) => {
@@ -15,13 +15,13 @@ export default function EachTile(props) {
           tempObj[doc.docType] = [{ doc_name: doc.docName }];
         }
       });
-      setTls(tempObj);
+      setDocsData(tempObj);
     });
   }, [props.form_id]);
 
 
-  const splitDocumentName = (docsData) => {
-    return docsData.map((document, key) => <p key={key}>{document.doc_name}</p>);
+  const splitDocumentName = (docObj) => {
+    return docObj.map((document, key) => <p key={key}>{document.doc_name}</p>);
   }
   const tile_style = {
     width: "200px",
@@ -32,13 +32,13 @@ export default function EachTile(props) {
     overflow: "hidden",
   };
   const tiles = [];
-  for (const [key, value] of Object.entries(tlsData)) {
+  for (const [key, eachDocObj] of Object.entries(docsData)) {
     tiles.push(
       <div key={key} style={tile_style}>
        <h3>{props.title}</h3>
-       {splitDocumentName(value)}
+       {splitDocumentName(eachDocObj)}
      </div>
     );
   }
-  return tiles.map((echTilr) => echTilr);
+  return tiles.map((echTile) => echTile);
 }

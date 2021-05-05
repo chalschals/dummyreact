@@ -16,24 +16,17 @@ function Tiles() {
       <EachTile key={keyoutter} title={pr_in.product} form_id={pr_in.formid} />
     ));
 
-  // const completeTilesData = [];
-  // product
-  //   .filter((pr) => pr.type === "COMPLETED")
-  //   .map((pr_com, key) => {
-  //     completeTilesData.push(
-  //       <EachTile key={key} name={[{ doc_name: "01" }, { doc_name: "02" }]} />
-  //     );
-  //   });
-
-  // for (const [key, value] of Object.entries(fileData)) {
-  //   tilesData.push(<EachTile key={key} name={value} />);
-  // }
+  const completeTilesData = product
+    .filter((pr) => pr.type === "COMPLETED")
+    .map((pr_in, keyoutter) => (
+      <EachTile key={keyoutter} title={pr_in.product} form_id={pr_in.formid} />
+    ));
 
   return (
     <div>
       {progressTilesData}
       <hr />
-      {/* {completeTilesData} */}
+      {completeTilesData}
     </div>
   );
 }
