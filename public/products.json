@@ -1,0 +1,22 @@
+[
+    {
+        "formid":"123",
+        "product":"PRO_01",
+        "type":"INPROGRESS"
+    },
+    {
+        "formid":"123",
+        "product":"PRO_02",
+        "type":"INPROGRESS"
+    },
+    {
+        "formid":"123",
+        "product":"PRO_03",
+        "type":"COMPLETED"
+    },
+    {
+        "formid":"123",
+        "product":"PRO_04",
+        "type":"COMPLETED"
+    }
+]

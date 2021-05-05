@@ -18,9 +18,5 @@
     {
         "docType":"OTHER DOCS",
         "docName":"test_docs.doc"
-    },
-    {
-        "docType":"OTHERTYPE DOCS",
-        "docName":"test_docs_new.doc"
     }
 ]

@@ -1,28 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { getData } from "../service/TitleService";
+import { getProduct } from "../service/TitleService";
 import EachTile from "./EachTile";
 function Tiles() {
-  const [fileData, setFileData] = useState({});
-  const tilesData = [];
+  const [product, setProduct] = useState([]);
+
   useEffect(() => {
-    getData().then((result) => {
-      let tempObj = {};
-      result.forEach((doc) => {
-        if (doc.docType in tempObj) {
-          tempObj[doc.docType].push({ doc_name: doc.docName });
-        } else {
-          tempObj[doc.docType] = [{ doc_name: doc.docName }];
-        }
-      });
-      setFileData(tempObj);
+    getProduct().then((result) => {
+      setProduct(result);
     });
   }, []);
 
-  for (const [key, value] of Object.entries(fileData)) {
-    tilesData.push(<EachTile key={key} name={value} />);
-  }
+  const progressTilesData = product
+    .filter((pr) => pr.type === "INPROGRESS")
+    .map((pr_in, keyoutter) => (
+      <EachTile key={keyoutter} title={pr_in.product} form_id={pr_in.formid} />
+    ));
 
-  return <div>{tilesData}</div>;
+  // const completeTilesData = [];
+  // product
+  //   .filter((pr) => pr.type === "COMPLETED")
+  //   .map((pr_com, key) => {
+  //     completeTilesData.push(
+  //       <EachTile key={key} name={[{ doc_name: "01" }, { doc_name: "02" }]} />
+  //     );
+  //   });
+
+  // for (const [key, value] of Object.entries(fileData)) {
+  //   tilesData.push(<EachTile key={key} name={value} />);
+  // }
+
+  return (
+    <div>
+      {progressTilesData}
+      <hr />
+      {/* {completeTilesData} */}
+    </div>
+  );
 }
 
 export default Tiles;

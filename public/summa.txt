@@ -1,0 +1,14 @@
+// async function getTheFiles() {
+  //   const docData = await getData().then((result) => {
+  //     let tempObj = {};
+  //     result.forEach((doc) => {
+  //       if (doc.docType in tempObj) {
+  //         tempObj[doc.docType].push({ doc_name: doc.docName });
+  //       } else {
+  //         tempObj[doc.docType] = [{ doc_name: doc.docName }];
+  //       }
+  //     });
+  //     return tempObj;
+  //   });
+  //   return docData;
+  // }
